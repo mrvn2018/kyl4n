@@ -13,6 +13,7 @@ def escanear():
     version = escaneo[Host]["tcp"][int(Port)]["name"]
     target = escaneo[Host]["addresses"]["ipv4"]
     status_host = escaneo[Host]["status"]["state"]
-    resultados = "[+] " + str(target)+ " " + str(status_host) + " " + str(version) + " " + str(estado)
+    resultados = "[+] " + str(target)+ "        " + str(status_host) + "           " + str(version) + "      " + str(estado)
+    print ("    Target      " + "Estado del Host  " + "Version " + " " + "Estado del Puerto ")
     print resultados
 escanear()
