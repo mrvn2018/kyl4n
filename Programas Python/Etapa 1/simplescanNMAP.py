@@ -1,12 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#ver version de python instalada: python -ValueError
-#pip install python-nmap
-#from nmap import *, importa todas las clases y metodos del Modulo nmap
+#Este script realiza el escaneo simple de un puerto con nmap
 
-import nmap # import nmap.py module
-#print help(nmap.PortScanner)
-#print (nm.csv())
+import nmap # importar modulo nmap.py 
 
 def escanear():
     Host = raw_input("Ingresa el Host: ")
