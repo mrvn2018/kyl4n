@@ -1,0 +1,79 @@
+Generated Skillet
+
+# skillet preamble information used by panhandler
+# ---------------------------------------------------------------------
+# unique snippet name
+name: Configuracion_Address
+# label used for menu selection
+label: Address_config
+description: Este skillet permite configurar 2 direcciones IP
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - Skillets-Marvin-2020
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: hostname
+    description: Firewall hostname
+    default: myFirewall
+    type_hint: text
+  - name: choices
+    description: sample dropdown list
+    default: choices
+    type_hint: dropdown
+    dd_list:
+      - key: option1
+        value: option1
+      - key: option2
+        value: option2
+  - name: address_name
+	description: Address Name
+	default: some_address
+	type_hint: text
+  - name: address_cidr
+	description: Address CIDR
+	default: 10.10.10.0/24
+	type_hint: cidr
+  - name: address_description
+	description: Address Description
+	default: Description of this Address Objet
+	type_hint: text_area
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+# NOTE: The following snippets are auto-generated and ordered automatically.
+# Changing the content of the snippet may be necessary, but do NOT change the order
+
+# There is a variable called snippets that we can use to auto-generate this section for us
+snippets:
+
+  - name: entry-424395
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/vsys/entry[@name="vsys1"]/address
+    element: |-
+        <entry name="{{ address_name }}">
+			<ip-netmask>{{ address_cidr }}</ip-netmask>
+			<description>{{ address_description }}</description>
+		</entry> 
+
+# ---------------------------------------------------------------------
+# end of snippets section
